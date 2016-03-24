@@ -60,7 +60,36 @@ public class PizzaPreferences extends AppCompatActivity {
         Intent calculatePizzaCost = new Intent(this, CostCalculator.class);
         boolean[] hasToppings = new boolean[toppings.length];
 
-        //insert your code here
+        String size = "";
+
+        for(int i = 0; i < toppings.length; i++){
+            if (toppings[i].isChecked()){
+                hasToppings[i]=true;
+            }
+        }
+        if (rdobtnIndividual.isChecked()) {
+            size = "individual";
+        }
+        if (rdobtnSmall.isChecked()) {
+            size = "Small";
+
+        }if (rdobtnMedium.isChecked()) {
+            size = "Medium";
+        }
+        if (rdobtnLarge.isChecked()) {
+            size = "Large";
+        }
+        if (rdobtnExtraLarge.isChecked()) {
+            size = "Extra Large";
+        }
+
+        String type = "";
+        for(int i =0; i< toppings.length; i++){
+            if (toppings[i].isChecked()){
+        }
+
+
+
 
         calculatePizzaCost.putExtra("TOPPINGS_BOOLEANS", hasToppings);
         startActivityForResult(calculatePizzaCost, 0);
