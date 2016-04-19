@@ -61,6 +61,8 @@ public class PizzaPreferences extends AppCompatActivity {
         boolean[] hasToppings = new boolean[toppings.length];
 
         String size = "";
+        String crustType = "";
+        boolean garlic = false;
 
         for(int i = 0; i < toppings.length; i++){
             if (toppings[i].isChecked()){
@@ -68,25 +70,35 @@ public class PizzaPreferences extends AppCompatActivity {
             }
         }
         if (rdobtnIndividual.isChecked()) {
-            size = "individual";
+            size = "Individual";
         }
-        if (rdobtnSmall.isChecked()) {
+        else if (rdobtnSmall.isChecked()) {
             size = "Small";
 
-        }if (rdobtnMedium.isChecked()) {
+        }else if (rdobtnMedium.isChecked()) {
             size = "Medium";
         }
-        if (rdobtnLarge.isChecked()) {
+        else if (rdobtnLarge.isChecked()) {
             size = "Large";
         }
-        if (rdobtnExtraLarge.isChecked()) {
+        else if (rdobtnExtraLarge.isChecked()) {
             size = "Extra Large";
         }
-
-        String type = "";
-        for(int i =0; i< toppings.length; i++){
-            if (toppings[i].isChecked()){
+        else if (rdobtnThin.isChecked()){
+            crustType = "Thin";
         }
+        else if (rdobtnThick.isChecked()){
+            crustType = "Thick";
+        }
+        else if (rdobtnCheeseFilled.isChecked()){
+            crustType = "Cheese Filled";
+        }
+        else if (chkboxGarlic.isChecked()){
+            garlic = true;
+        }
+
+
+
 
 
 

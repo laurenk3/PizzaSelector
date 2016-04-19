@@ -47,19 +47,46 @@ public class CostCalculator extends AppCompatActivity {
 
         TextView txtvwCostBreakdown = (TextView) findViewById(R.id.txtvwCostBreakdown);
 
-       // for(int i = 0; i < toppings.length; i++){
-          //  if (toppings[i].isChecked()){
-           //     hasToppings[i]=true;
-           // }
+         for(int i = 0; i < toppingsOnPizza.length; i++) {
+             if (toppingsOnPizza[i] == true ){
+                 numToppings = (numToppings + 1);
+             }
+         }
+
+         toppingCost = numToppings * TOPPING_COST;
+         if (sizeName.equals("Individual")){
+             sizeCost = INDIVIDUAL_COST;
+         }else if (sizeName.equals("Small")){
+             sizeCost = SMALL_COST;
+         }else if (sizeName.equals("Medium")){
+             sizeCost = MEDIUM_COST;
+         }else if (sizeName.equals("Large")) {
+             sizeCost = LARGE_COST;
+         }else if (sizeName.equals("Extra Large")) {
+             sizeCost = EXTRA_COST;
+
+        if (crustName.equals("Thin")){
+            crustCost = THIN_CRUST;
+        } else if(crustName.equals("Thick")) {
+            crustCost = THICK_CRUST;
+        } else {
+            crustCost = CHEESE_FILLED;
+        }
+
+
+        subtotal = toppingCost + crustCost;
+        totalCost = txtvwCostBreakdown.setText((subtotal + taxes));
+
 
         String costs = String.format("Toppings: %d x $0.75 = $%.2f\nSize: %s = $%.2f\n" +
                 "Crust Type: %s = $%.2f\nSubtotal: $%.2f\nTaxes: $%.2f\nTotal: $%.2f",
                 numToppings, toppingCost, sizeName, sizeCost, crustName, crustCost,
                 subtotal, taxes, totalCost);
 
-        txtvwCostBreakdown.setText(costs);
-
+        txtvwCostBreakdown.setText(costs);}
     }
+
+
 
     public void backToMenu(View vw){
 
